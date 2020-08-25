@@ -1,0 +1,27 @@
+
+Login - 
+	https://jasonwatmore.com/post/2018/06/14/nodejs-mongodb-simple-api-for-authentication-registration-and-user-management
+		https://github.com/cornflourblue/node-mongo-registration-login-api
+		https://jasonwatmore.com/post/2020/07/18/angular-10-user-registration-and-login-example-tutorial
+Carrossel de fotos
+	https://netbasal.com/building-a-simple-carousel-component-with-angular-3a94092b7080
+	https://mdbootstrap.com/docs/angular/advanced/carousel/
+	https://mdbootstrap.com/docs/angular/advanced/carousel/#multi-item-carousel
+	https://codepen.io/lfaudreejr/pen/PaWWPa
+Calendário
+	https://www.infragistics.com/products/ignite-ui-angular/angular/components/calendar.html
+	https://material.angular.io/components/datepicker/overview
+	https://angular-calendar.com/#/kitchen-sink
+	https://ng-demo.mdbootstrap.com/plugins/calendar
+Tabs
+	https://material.angular.io/components/tabs/examples
+	https://material.angular.io/components/tabs/overview
+	
+
+Opcional
+	https://material.angular.io/components/badge/overview - Para adicionar acima do carrinho com a quatidade de itens selecionados
+	https://material.angular.io/components/button/overview - Estilização de botões do site
+	https://material.angular.io/components/card/overview - Cards para segurar as informações
+	https://material.angular.io/components/divider/overview - Divisor para separar informações ( Carrossel do calendar)
+	https://material.angular.io/components/form-field/overview - Auxilio para login
+	
