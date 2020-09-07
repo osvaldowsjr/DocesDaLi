@@ -1,0 +1,6 @@
+{
+    "cliente": "Cliente",
+    "Lista_doces": ["Doces"],
+    "endereco_entrega": "String",
+    "valor_total": "Double"
+}

@@ -1,0 +1,8 @@
+Estoque
+    Funções
+        RetirarEstoque(Receita)
+            Retorna 200 + Estoque
+        AdicionarEstoque(Ingrediente,quantidade)
+            Retorna 200 + Estoque
+        ConsultarEstoque()
+            Retorna 200 + Estoque

@@ -1,0 +1,7 @@
+{
+    "id": "String",
+    "nome": "String",
+    "url_img": "String",
+    "Descricao": "String",
+    "Preco": "Double"
+}

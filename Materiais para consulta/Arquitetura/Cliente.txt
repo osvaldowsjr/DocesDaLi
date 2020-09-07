@@ -1,0 +1,10 @@
+Cliente
+    Funções
+        efetivarPedido(Cliente)
+            AtualizarEstoque()
+            Retorna Pedido(objeto) + 200
+        doLogin(email, hash_senha)
+            Retorna Cliente ou Admin + 200
+        RegistrarCliente(Cliente) -> UpdateCliente(Cliente)
+            Retorna Cliente + 200
+        

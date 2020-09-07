@@ -1,0 +1,14 @@
+{
+    "ingredientes": [{
+            "id": "String",
+            "nome": "String",
+            "quantidade": "Double"
+        },
+        {
+            "id": "String",
+            "nome": "String",
+            "quantidade": "Double"
+        }
+    ]
+
+}

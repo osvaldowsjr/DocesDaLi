@@ -1,0 +1,7 @@
+{
+    "id": "string",
+    "nome": "String",
+    "email": "string",
+    "hash_senha": "String",
+    "historico_pedidos": ["Pedidos(Obj)"]
+}

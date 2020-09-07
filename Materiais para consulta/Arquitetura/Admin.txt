@@ -1,0 +1,6 @@
+Admin
+    Funções
+        doLogin -> Igual cliente
+        UpdateReceita(Receita) -> CriarReceita(Receita)
+            Retorno 200 + Receita
+        
