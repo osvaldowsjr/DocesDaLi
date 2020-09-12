@@ -1,0 +1,20 @@
+.calendar-wrapper {
+    width: 300px;
+    text-align: center;
+    color: #FEFFF6;
+    margin-left: 20%;
+    background-color: #42929D;
+}
+
+::ng-deep .mat-calendar-body-selected {
+    background-color: #F8D9D6;
+    color: #72bbc0;
+}
+
+::ng-deep .mat-calendar-body-label[colspan="7"] {
+    display: none;
+}
+
+::ng-deep .mat-calendar-body-label {
+    opacity: 0;
+}

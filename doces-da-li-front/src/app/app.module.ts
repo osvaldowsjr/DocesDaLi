@@ -12,12 +12,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { AppRegisterComponent } from './app-register/app-register.component';
+import { AppMainPageComponent } from './app-main-page/app-main-page.component';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { AppMainPageCarouselComponent } from './app-main-page-carousel/app-main-page-carousel.component';
+import { AppMainPageCalendarComponent } from './app-main-page-calendar/app-main-page-calendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppLoginComponent,
-    AppRegisterComponent
+    AppRegisterComponent,
+    AppMainPageComponent,
+    AppMainPageCarouselComponent,
+    AppMainPageCalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +35,11 @@ import { AppRegisterComponent } from './app-register/app-register.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatToolbarModule,
+    MatCarouselModule.forRoot(),
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
