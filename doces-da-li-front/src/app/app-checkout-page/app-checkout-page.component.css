@@ -1,3 +1,12 @@
+.content {
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8D9D6;
+}
+
 table {
     width: 100%;
     background-color: #42929D;
@@ -8,7 +17,6 @@ table {
     height: 350px;
     width: 60%;
     overflow: auto;
-    margin-left: 10%;
 }
 
 tr.mat-footer-row {

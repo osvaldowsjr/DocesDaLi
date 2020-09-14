@@ -1,9 +1,15 @@
 .calendar-wrapper {
-    width: 300px;
+    width: 350px;
     text-align: center;
     color: #FEFFF6;
     margin-left: 20%;
     background-color: #42929D;
+}
+
+@media (max-width:720px) {
+    .calendar-wrapper {
+        width: 200px;
+    }
 }
 
 ::ng-deep .mat-calendar-body-selected {

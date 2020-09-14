@@ -16,8 +16,11 @@ import { AppMainPageComponent } from './app-main-page/app-main-page.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import {MatTableModule} from '@angular/material/table'
+import {MatListModule} from '@angular/material/list'
 import { AppMainPageCarouselComponent } from './app-main-page-carousel/app-main-page-carousel.component';
 import { AppMainPageCalendarComponent } from './app-main-page-calendar/app-main-page-calendar.component';
+import { AppCheckoutPageComponent } from './app-checkout-page/app-checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { AppMainPageCalendarComponent } from './app-main-page-calendar/app-main-
     AppRegisterComponent,
     AppMainPageComponent,
     AppMainPageCarouselComponent,
-    AppMainPageCalendarComponent
+    AppMainPageCalendarComponent,
+    AppCheckoutPageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,8 @@ import { AppMainPageCalendarComponent } from './app-main-page-calendar/app-main-
     MatCarouselModule.forRoot(),
     MatInputModule,
     MatButtonModule,
+    MatTableModule,
+    MatListModule,
     MatDatepickerModule,
     MatMomentDateModule
   ],

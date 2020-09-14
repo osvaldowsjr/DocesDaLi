@@ -31,8 +31,7 @@ export class AppLoginComponent implements OnInit {
     if (this.form.invalid) {
         return;
     }
-
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.form.value))
+    this.router.navigate(['/main'])
 }
   onRegister(){
     this.router.navigate([

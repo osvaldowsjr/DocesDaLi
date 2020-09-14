@@ -1,16 +1,12 @@
 <div class="demo-carousel">
-    <mat-carousel #matCarousel [timings]="timings" [autoplay]="autoplay" [interval]="interval" [loop]="loop" [hideArrows]="hideArrows" [hideIndicators]="hideIndicators" [color]="color" [maxWidth]="maxWidth" [proportion]="proportion" [useKeyboard]="useKeyboard"
-        [useMouseWheel]="useMouseWheel" [orientation]="orientation" [slides]="slides" [maintainAspectRatio]="maintainAspectRatio" [slideHeight]="slideHeight">
-        <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slidesList; let i = index" image="assets/Logo.PNG">
+    <mat-carousel #matCarousel [timings]="timings" [autoplay]="autoplay" [interval]="interval" [loop]="loop" [hideArrows]="hideArrows" [hideIndicators]="hideIndicators" [maxWidth]="maxWidth" [proportion]="proportion" [useKeyboard]="useKeyboard" [useMouseWheel]="useMouseWheel"
+        [orientation]="orientation" [slides]="slides" [maintainAspectRatio]="maintainAspectRatio" [slideHeight]="slideHeight">
+        <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slidesList; let i = index" [image]="slide.pic">
             <ng-container>
-                <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
-                    <h1>{{ i }}</h1>
-                    <p>disabled: {{ matCarouselSlide.disabled }}</p>
-                    <button mat-flat-button (click)="
-                matCarouselSlide.disabled = !matCarouselSlide.disabled
-              ">
-              Click me!
-            </button>
+                <div style="width: 100%; margin-top: 5%; display: flex; flex-direction: column; align-items: center; justify-content: center">
+                    <h1>{{ slide.name }}</h1>
+                    <h4>{{ slide.description }}</h4>
+                    <button mat-flat-button (click)="clickButton(i)">Adicionar no carrinho</button>
                 </div>
             </ng-container>
         </mat-carousel-slide>
