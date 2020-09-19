@@ -1,48 +1,53 @@
 .content {
-    padding: 16px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F8D9D6;
+  padding: 16px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8d9d6;
 }
 
-.content>mat-card {
-    width: 40%;
-    vertical-align: middle;
-    color: #FEFFF6;
-    background-color: #42929D;
-    margin-left: 5%;
+.content > mat-card {
+  width: 40%;
+  vertical-align: middle;
+  color: #fefff6;
+  background-color: #42929d;
+  margin-left: 5%;
 }
 
 .form-control {
-    background-color: #FEFFF6;
-    color: #42929D;
+  background-color: #fefff6;
+  color: #42929d;
 }
 
 .mat-button {
-    background-color: #FEFFF6;
-    color: #42929D;
+  background-color: #fefff6;
+  color: #42929d;
 }
 
 .label {
-    color: #FEFFF6;
+  color: #fefff6;
 }
 
 .mat-card-title {
-    color: #FEFFF6;
-    margin-left: -16px;
+  color: #fefff6;
+  margin-left: -16px;
 }
 
 .mat-card-header {
-    margin: 0;
+  margin: 0;
 }
 
 .validator {
-    color: #f8d9d6;
-    font-weight: bold;
+  color: #f8d9d6;
+  font-weight: bold;
 }
 
 input:focus {
-    border-color: #84c3c8;
+  border-color: #84c3c8;
+}
+
+.btn-link {
+  color: #fefff6;
+  font-size: small;
 }
