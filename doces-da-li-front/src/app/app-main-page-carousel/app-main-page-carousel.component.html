@@ -1,4 +1,4 @@
-<div class="demo-carousel">
+<!-- <div class="demo-carousel">
     <mat-carousel #matCarousel [timings]="timings" [autoplay]="autoplay" [interval]="interval" [loop]="loop" [hideArrows]="hideArrows" [hideIndicators]="hideIndicators" [maxWidth]="maxWidth" [proportion]="proportion" [useKeyboard]="useKeyboard" [useMouseWheel]="useMouseWheel"
         [orientation]="orientation" [slides]="slides" [maintainAspectRatio]="maintainAspectRatio" [slideHeight]="slideHeight">
         <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slidesList; let i = index" [image]="slide.pic">
@@ -11,4 +11,30 @@
             </ng-container>
         </mat-carousel-slide>
     </mat-carousel>
-</div>
+</div> -->
+<ng-container *ngFor="let product of productList">
+  <div class="form-group">
+    <div class="col-sm-3">
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src="https://cdn.pixabay.com/photo/2017/03/15/19/18/tartlet-2147173_1280.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Preço: {{ product.price }}</li>
+          <li class="list-group-item">Calorias: 290kcal</li>
+        </ul>
+        <div class="card-body">
+          <button mat-flat-button (click)="clickButton(product.id)">
+            Adicionar no carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
