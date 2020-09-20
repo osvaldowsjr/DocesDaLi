@@ -12,13 +12,14 @@
         </mat-carousel-slide>
     </mat-carousel>
 </div> -->
-<ng-container *ngFor="let product of productList">
-  <div class="form-group">
-    <div class="col-sm-3">
+
+<!-- <div class="row">
+  <ng-container *ngFor="let product of productList">
+    <div class="col-3">
       <div class="card" style="width: 18rem">
         <img
           class="card-img-top"
-          src="https://cdn.pixabay.com/photo/2017/03/15/19/18/tartlet-2147173_1280.jpg"
+          [src]="product.imageurl"
           alt="Card image cap"
         />
         <div class="card-body">
@@ -36,5 +37,45 @@
         </div>
       </div>
     </div>
-  </div>
-</ng-container>
+  </ng-container>
+</div> -->
+
+<div class="container-fluid">
+  <owl-carousel
+    [options]="mySlideOptions"
+    [carouselClasses]="['owl-theme', 'sliding']"
+  >
+    <div class="item pt-3" *ngFor="let product of productList; let i = index">
+      <div class="slider">
+        <mat-card class="border-style" style="width: 10rem">
+          <img
+            class="card-img-top border-style"
+            [src]="product.imageurl"
+            alt="Card image cap"
+          />
+          <mat-card-content class="pt-3">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item border-style"
+                style="color: black; font-weight: bold"
+              >
+                Preço: {{ product.price | currency: "R$" }}
+              </li>
+              <li class="list-group-item styleBackground">Calorias: 290kcal</li>
+            </ul>
+          </mat-card-content>
+
+          <mat-card-actions class="d-flex justify-content-center my-auto">
+            <button mat-flat-button (click)="clickButton(i)">
+              Adicionar ao carrinho
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </owl-carousel>
+</div>
+<router-outlet></router-outlet>

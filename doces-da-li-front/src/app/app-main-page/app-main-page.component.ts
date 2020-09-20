@@ -7,43 +7,45 @@ import { item } from 'src/_models/slides';
 @Component({
   selector: 'app-main-page',
   templateUrl: './app-main-page.component.html',
-  styleUrls: ['./app-main-page.component.css']
+  styleUrls: ['./app-main-page.component.css'],
 })
-export class AppMainPageComponent{
+export class AppMainPageComponent {
   @ViewChild(MatTable) table: MatTable<any>;
 
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
 
   items: item[] = [];
-  date = NONE_TYPE
-  displayedColumns: string[] = ['name', 'preço','remover'];
+  date = NONE_TYPE;
+  displayedColumns: string[] = ['name', 'quantidade', 'preço', 'remover'];
 
-  onDateSelected(event){
-    this.date = event
+  onDateSelected(event) {
+    this.date = event;
   }
 
-  objToSend:NavigationExtras = {
-    queryParams:{
-      list : this.items,
-      moment: this.date
-    }
-  }
+  objToSend: NavigationExtras = {
+    queryParams: {
+      list: this.items,
+      moment: this.date,
+    },
+  };
 
-  onItemAdded(event){
+  onItemAdded(event) {
     this.items.push(event);
     this.table.renderRows();
   }
 
-  onClickDelete(id: any){
-      this.items.splice(id, 1);
-      this.table.renderRows();
+  onClickDelete(id: any) {
+    this.items.splice(id, 1);
+    this.table.renderRows();
   }
 
-  goToCheckout(){
-    this.router.navigate(['checkout'],{state:{data:this.objToSend}})
+  goToCheckout() {
+    this.router.navigate(['checkout'], { state: { data: this.objToSend } });
   }
 
   getTotalCost() {
-    return this.items.map(t => Number(t.price)).reduce((acc, value) => acc + value, 0);
+    return this.items
+      .map((t) => Number(t.price))
+      .reduce((acc, value) => acc + value, 0);
   }
 }
