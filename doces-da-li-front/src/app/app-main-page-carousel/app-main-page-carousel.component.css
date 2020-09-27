@@ -3,7 +3,7 @@
   display: flex;
 }
 .border-style {
-  border: solid 1px #424242;
+  border: solid 1px #42929d;
   border-radius: 10px;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .styleBackground {
-  background: #424242;
+  background: #42929d;
 }
 
 .mat-card-content .btn button:hover {
@@ -34,6 +34,11 @@
 }
 
 .mat-flat-button {
-  color: #fefff6;
-  background-color: #42929d;
+  color: #42929d;
+  background-color: #fefff6;
+}
+
+.mat-flat-button:hover {
+  width: 105%;
+  height: 105%;
 }

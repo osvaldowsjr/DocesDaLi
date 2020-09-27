@@ -47,24 +47,40 @@
   >
     <div class="item pt-3" *ngFor="let product of productList; let i = index">
       <div class="slider">
-        <mat-card class="border-style" style="width: 10rem">
+        <mat-card
+          class="border-style"
+          style="width: 10rem; background-color: #42929d"
+        >
           <img
             class="card-img-top border-style"
             [src]="product.imageurl"
             alt="Card image cap"
           />
           <mat-card-content class="pt-3">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">{{ product.description }}</p>
+            <h5 class="card-title" style="color: #fefff6; text-align: center">
+              {{ product.name }}
+            </h5>
+            <p class="card-text" style="color: #fefff6">
+              {{ product.description }}
+            </p>
 
             <ul class="list-group list-group-flush">
               <li
                 class="list-group-item border-style"
-                style="color: black; font-weight: bold"
+                style="
+                  color: #42929d;
+                  font-weight: bold;
+                  background-color: #fefff6;
+                "
               >
                 Preço: {{ product.price | currency: "R$" }}
               </li>
-              <li class="list-group-item styleBackground">Calorias: 290kcal</li>
+              <li
+                class="list-group-item styleBackground"
+                style="color: #fefff6"
+              >
+                Calorias: 290kcal
+              </li>
             </ul>
           </mat-card-content>
 
