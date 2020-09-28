@@ -29,16 +29,12 @@
   background: #42929d;
 }
 
-.mat-card-content .btn button:hover {
-  transform: scale(0.9);
-}
-
 .mat-flat-button {
   color: #42929d;
   background-color: #fefff6;
 }
 
 .mat-flat-button:hover {
-  width: 105%;
-  height: 105%;
+  opacity: 0.9;
+  transform: scale(1.1, 1.1);
 }
