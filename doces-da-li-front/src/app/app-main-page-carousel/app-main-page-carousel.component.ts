@@ -23,12 +23,11 @@ export class AppMainPageCarouselComponent{
   public interval = 5000;
   public loop = true;
   public hideArrows = false;
-  public hideIndicators = false;
+  public hideIndicators = true;
   public color: ThemePalette = 'primary';
   public maxWidth = 'auto';
   public maintainAspectRatio = true;
-  public proportion = 27;
-  public slideHeight = '200px';
+  public proportion = 22;
   public slides = this.slidesList.length;
   public overlayColor = '#0000000';
   public hideOverlay = true;

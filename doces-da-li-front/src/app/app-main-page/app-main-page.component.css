@@ -4,13 +4,15 @@ table {
     color: #FEFFF6;
 }
 
-.example-container {
+.table-container {
     height: 350px;
     width: 60%;
     overflow: auto;
     margin-left: 10%;
+    margin-right: 8%;
 }
 
-tr.mat-footer-row {
-    font-weight: bold;
+.mat-icon {
+    color: #FEFFF6;
+    size: 50%;
 }

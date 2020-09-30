@@ -1,0 +1,14 @@
+.dialog {
+    width: 100%;
+    background-color: #42929D;
+    color: #FEFFF6;
+}
+
+.form-control {
+    background-color: #FEFFF6;
+    color: #42929D;
+}
+
+input:focus {
+    border-color: #84c3c8;
+}

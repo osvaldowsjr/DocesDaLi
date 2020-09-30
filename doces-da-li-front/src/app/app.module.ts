@@ -1,14 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppLoginComponent } from './app-login/app-login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { AppRegisterComponent } from './app-register/app-register.component';
@@ -21,6 +20,13 @@ import {MatListModule} from '@angular/material/list'
 import { AppMainPageCarouselComponent } from './app-main-page-carousel/app-main-page-carousel.component';
 import { AppMainPageCalendarComponent } from './app-main-page-calendar/app-main-page-calendar.component';
 import { AppCheckoutPageComponent } from './app-checkout-page/app-checkout-page.component';
+import { AppStorageComponent } from './app-storage/app-storage.component';
+import { getBRPaginatorIntl } from 'src/_helpers/paginator';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +36,9 @@ import { AppCheckoutPageComponent } from './app-checkout-page/app-checkout-page.
     AppMainPageComponent,
     AppMainPageCarouselComponent,
     AppMainPageCalendarComponent,
-    AppCheckoutPageComponent
+    AppCheckoutPageComponent,
+    AppStorageComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -43,11 +51,18 @@ import { AppCheckoutPageComponent } from './app-checkout-page/app-checkout-page.
     MatInputModule,
     MatButtonModule,
     MatTableModule,
+    MatPaginatorModule,
+    FormsModule,
     MatListModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatIconModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatGridListModule
   ],
-  providers: [],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: getBRPaginatorIntl() }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

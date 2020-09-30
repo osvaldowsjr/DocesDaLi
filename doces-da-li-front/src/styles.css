@@ -1,4 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+html,
+body {
+    background-color: #F8D9D6;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #FEFFF6 !important;
+}
+
+.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #FEFFF6 !important;
+}
+
+.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #FEFFF6 !important;
+    ;
+}
+
+.mat-button {
+    background-color: #FEFFF6;
+    color: #42929D;
+}
+
+.mat-flat-button {
+    background-color: #42929D;
+    color: #FEFFF6;
+}
+
+.mat-card-title {
+    color: #FEFFF6;
+    margin-left: -16px;
+}
+
+.mat-card-header {
+    margin: 0;
+}
+
+tr.mat-footer-row {
+    font-weight: bold;
+}
+
+.mat-calendar-body-selected {
+    background-color: #F8D9D6;
+    color: #72bbc0;
+}
+
+.mat-calendar-body-label[colspan="7"] {
+    display: none;
+}
+
+.mat-calendar-body-label {
+    opacity: 0;
+}
+
+.content>mat-card {
+    width: 40%;
+    vertical-align: middle;
+    color: #FEFFF6;
+    background-color: #42929D;
+    margin-left: 5%;
+}
+
+.mat-dialog-container {
+    background-color: #42929D;
+    color: #FEFFF6;
+}
+
+.mat-icon {
+    color: #42929D;
+}
+
+.mat-icon-button {
+    font-size: 300%;
+}
+
+.mat-mini-fab {
+    color: #42929D;
+    font-family: 'Material Icons' !important;
+}
+
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent,
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent {
+    color: #42929D;
+    background-color: #42929D;
+}

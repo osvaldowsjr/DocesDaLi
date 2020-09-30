@@ -1,10 +1,10 @@
-<div style="background-color: #F8D9D6;">
+<div style="background-color: #F8D9D6; padding-bottom: 3%;">
     <app-main-page-carousel (item)="onItemAdded($event)"></app-main-page-carousel>
-    <div style="display: flex;margin-top: 3%">
-        <div>
+    <div style="display: flex;margin-top: 3%;">
+        <div style="width: 40%;">
             <app-main-page-calendar (dateSelected)='onDateSelected($event)'></app-main-page-calendar>
         </div>
-        <div class="example-container ">
+        <div class="table-container">
             <table mat-table class="mat-elevation-z8" [dataSource]="items">
                 <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef> Nome </th>
@@ -18,8 +18,8 @@
                 </ng-container>
                 <ng-container matColumnDef="remover">
                     <th mat-header-cell *matHeaderCellDef></th>
-                    <td mat-cell *matCellDef="let element; let id = index"><button mat-button (click)="onClickDelete(id)">Remover</button></td>
-                    <td mat-footer-cell *matFooterCellDef><button mat-button (click)="goToCheckout()">Finalizar Compra</button></td>
+                    <td mat-cell *matCellDef="let element; let id = index"><button mat-icon-button (click)="onClickDelete(id)"><mat-icon [inline]="true">remove_shopping_cart</mat-icon></button></td>
+                    <td mat-footer-cell *matFooterCellDef><button mat-icon-button (click)="goToCheckout()"><mat-icon>done_outline</mat-icon></button></td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

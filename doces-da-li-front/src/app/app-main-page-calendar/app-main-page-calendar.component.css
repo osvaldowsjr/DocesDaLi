@@ -1,26 +1,8 @@
-.calendar-wrapper {
-    width: 350px;
+.mat-calendar {
+    width: 80%;
     text-align: center;
     color: #FEFFF6;
     margin-left: 20%;
+    margin-right: 20%;
     background-color: #42929D;
-}
-
-@media (max-width:720px) {
-    .calendar-wrapper {
-        width: 200px;
-    }
-}
-
-::ng-deep .mat-calendar-body-selected {
-    background-color: #F8D9D6;
-    color: #72bbc0;
-}
-
-::ng-deep .mat-calendar-body-label[colspan="7"] {
-    display: none;
-}
-
-::ng-deep .mat-calendar-body-label {
-    opacity: 0;
 }
