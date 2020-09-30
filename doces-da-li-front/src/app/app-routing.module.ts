@@ -4,7 +4,7 @@ import { AppLoginComponent } from './app-login/app-login.component';
 import { AppRegisterComponent } from './app-register/app-register.component';
 import { AppMainPageComponent } from './app-main-page/app-main-page.component';
 import { AppCheckoutPageComponent } from './app-checkout-page/app-checkout-page.component';
-import { AppStorageComponent } from './app-storage/app-storage.component';
+import { AppAdminComponent } from './app-admin/app-admin.component';
 
 
 const routes: Routes = [
@@ -30,8 +30,8 @@ const routes: Routes = [
     component:AppCheckoutPageComponent
   },
   {
-    path:"storage",
-    component:AppStorageComponent
+    path:"admin",
+    component:AppAdminComponent
   }
 ];
 

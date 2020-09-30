@@ -32,7 +32,7 @@ export class AppLoginComponent implements OnInit {
         return;
     }else{
       if(this.f.email.value == "admin@admin.com.br"){
-        this.router.navigate(['/storage'])
+        this.router.navigate(['/admin'])
       }else
         this.router.navigate(['/main'])
     }

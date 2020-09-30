@@ -98,3 +98,21 @@ tr.mat-footer-row {
     color: #42929D;
     background-color: #42929D;
 }
+
+.mat-tab-label {
+    background-color: #42929D;
+}
+
+.mat-tab-group {
+    background-color: #42929D;
+    color: #FEFFF6;
+}
+
+.mat-tab-label-content {
+    color: #FEFFF6;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #FEFFF6;
+}
