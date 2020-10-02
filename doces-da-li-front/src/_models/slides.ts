@@ -13,6 +13,7 @@ export class ingredient{
         public id:string,
         public name:string,
         public amount: Number,
-        public price: String
+        public price: String,
+        public brand : String
     ){}
 }

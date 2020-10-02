@@ -1,16 +1,16 @@
 <h1 mat-dialog-title><strong>{{action}}</strong></h1>
 <div mat-dialog-content class="dialog">
     <mat-form-field *ngIf="action != 'Deletar'; else elseTemplate">
-        <input placeholder="{{action}} Nome" [(ngModel)]="local_data.name" matInput>
+        <input placeholder="{{action}} {{names[1]}}" [(ngModel)]="local_data.first" matInput>
     </mat-form-field>
     <mat-form-field *ngIf="action != 'Deletar';">
-        <input placeholder="{{action}} Preço" [(ngModel)]="local_data.price" matInput>
+        <input placeholder="{{action}} {{names[2]}}" [(ngModel)]="local_data.second" type="number" matInput>
     </mat-form-field>
     <mat-form-field *ngIf="action != 'Deletar';">
-        <input placeholder="{{action}} Descrição" [(ngModel)]="local_data.description" matInput>
+        <input placeholder="{{action}} {{names[3]}}" [(ngModel)]=" local_data.third " matInput>
     </mat-form-field>
-    <mat-form-field *ngIf="action != 'Deletar';">
-        <input placeholder="{{action}} Imagem" [(ngModel)]="local_data.pic" matInput>
+    <mat-form-field *ngIf="action !='Deletar' ; ">
+        <input placeholder="{{action}} {{names[4]}}" [(ngModel)]="local_data.fourth" matInput>
     </mat-form-field>
     <ng-template #elseTemplate>
         Confirma a deleção de <b>{{local_data.name}}</b>?

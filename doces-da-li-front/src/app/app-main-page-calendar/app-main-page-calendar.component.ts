@@ -8,28 +8,25 @@ import { DatePipe } from '@angular/common';
 })
 export class AppMainPageCalendarComponent {
 
-  selectedDate = new Date();
-  startAt = new Date();
-  minDate = new Date(new Date().setDate(new Date().getDate() +1));
+  selectedDate = new Date(new Date().setDate(new Date().getDate() +5));
+  startAt = new Date(new Date().setDate(new Date().getDate() +5));
+  minDate = new Date(new Date().setDate(new Date().getDate() +5));
   maxDate = new Date(new Date().setMonth(new Date().getMonth() + 2));
   year: any;
   DayAndDate: string;
 
   @Output()
-  dateSelected: EventEmitter<string> = new EventEmitter();
+  dateSelected: EventEmitter<String> = new EventEmitter();
 
   constructor(){
     this.onSelect(this.selectedDate);
   }
 
   onSelect(event) {
-    console.log(event);
-    this.selectedDate = event;
-    const dateString = event.toDateString();
-    const dateValue = dateString.split(' ');
-    this.year = dateValue[3];
-    this.DayAndDate = dateValue[0] + ',' + ' ' + dateValue[1] + ' ' + dateValue[2];
-    this.dateSelected.emit(this.DayAndDate)
+    this.selectedDate = new Date(event);
+    this.selectedDate.setHours(13)
+    const dateString = this.selectedDate.toLocaleString();
+    this.dateSelected.emit(dateString)
   }
 
   myFilter = (d: any): boolean => {

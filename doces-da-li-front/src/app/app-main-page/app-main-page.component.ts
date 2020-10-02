@@ -15,18 +15,12 @@ export class AppMainPageComponent{
   constructor(private router: Router){}
 
   items: item[] = [];
-  date = NONE_TYPE
+  dateSelected: String = "Alou";
   displayedColumns: string[] = ['name', 'preço','remover'];
 
-  onDateSelected(event){
-    this.date = event
-  }
 
-  objToSend:NavigationExtras = {
-    queryParams:{
-      list : this.items,
-      moment: this.date
-    }
+  onDateSelected(event){
+    this.objToSend.state.date = event
   }
 
   onItemAdded(event){
@@ -39,8 +33,14 @@ export class AppMainPageComponent{
       this.table.renderRows();
   }
 
+  objToSend:NavigationExtras = {
+    state:{
+      list : this.items,
+      date: this.dateSelected
+    }
+  }
   goToCheckout(){
-    this.router.navigate(['checkout'],{state:{data:this.objToSend}})
+    this.router.navigate(['checkout'],this.objToSend)
   }
 
   getTotalCost() {

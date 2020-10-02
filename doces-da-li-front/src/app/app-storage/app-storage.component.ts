@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { item } from 'src/_models/slides';
@@ -15,7 +15,7 @@ export class AppStorageComponent implements AfterViewInit  {
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource: MatTableDataSource<item>;
-  displayedColumns: string[] = ['ID','name', 'preço','description' ,'image','action'];
+  displayedColumns: string[] = ['ID','Nome', 'Preço','Descrição','Imagem','Action'];
 
   constructor(public dialog: MatDialog) {
     var d = new Date();
@@ -32,11 +32,20 @@ export class AppStorageComponent implements AfterViewInit  {
   }
 
   openDialog(action,obj) {
-    obj.action = action;
-    const dialogRef = this.dialog.open(DialogBoxComponent, {
-      width: '20%',
-      data:obj
-    });
+    const dialogConfig = new MatDialogConfig();
+    const att = [obj.name,obj.price,obj.description,obj.pic]
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '20%'
+
+    dialogConfig.data = {
+        data : obj,
+        names: this.displayedColumns,
+        action: action,
+        attribute : att
+    };
+    const dialogRef = this.dialog.open(DialogBoxComponent,dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
       if(result.event == 'Adicionar'){
@@ -53,7 +62,7 @@ export class AppStorageComponent implements AfterViewInit  {
     var d = new Date();
     let result: item[] = this.dataSource.data;
     result.push(
-      new item(d.getTime().toString(), row_obj.name, row_obj.pic, row_obj.description,row_obj.price)
+      new item(d.getTime().toString(), row_obj.first, row_obj.fourth, row_obj.third,row_obj.second)
     );
     this.dataSource.data = result
     this.table.renderRows();
@@ -63,10 +72,10 @@ export class AppStorageComponent implements AfterViewInit  {
     this.dataSource.data = this.dataSource.data.filter((value,key)=>{
       if(value.id == row_obj.id){
         value.id = row_obj.id;
-        value.name = row_obj.name;
-        value.description = row_obj.description;
-        value.price = row_obj.price;
-        value.pic = row_obj.pic;
+        value.name = row_obj.first;
+        value.price = row_obj.second;
+        value.description = row_obj.third;
+        value.pic = row_obj.fourth;
       }
       return true;
     });
