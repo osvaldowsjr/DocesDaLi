@@ -8,9 +8,6 @@ table {
   color: #fefff6;
 }
 
-tr.mat-footer-row {
-  font-weight: bold;
-}
 .table-container {
   height: 350px;
   width: 60%;
