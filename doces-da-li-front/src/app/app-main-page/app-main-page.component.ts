@@ -2,6 +2,7 @@ import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { NavigationExtras, Router } from '@angular/router';
+import { calendarFormat } from 'moment';
 import { item } from 'src/_models/slides';
 
 @Component({
@@ -13,6 +14,8 @@ export class AppMainPageComponent {
   @ViewChild(MatTable) table: MatTable<any>;
 
   constructor(private router: Router) {}
+
+  //array: number[] = [];
 
   items: item[] = [];
   date = NONE_TYPE;
@@ -32,6 +35,14 @@ export class AppMainPageComponent {
   }
 
   onItemAdded(event) {
+    // this.array.push(event.id);
+
+    // for (let i = 0; i < this.array.length; i++) {
+    //   if (event.id == this.array[i]) {
+    //   } else {
+    //   }
+    // }
+
     this.items.push(event);
     this.table.renderRows();
   }
@@ -43,10 +54,6 @@ export class AppMainPageComponent {
 
   goToCheckout() {
     this.router.navigate(['checkout'], { state: { data: this.objToSend } });
-
-    // goToCheckout(){
-    //   this.router.navigate(['checkout'],this.objToSend)
-    // }
   }
 
   getTotalCost() {
