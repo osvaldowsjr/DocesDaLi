@@ -1,5 +1,6 @@
 import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -18,6 +19,8 @@ export class AppCheckoutPageComponent implements OnInit {
   displayedColumns: string[] = ['name', 'preço'];
   date = NONE_TYPE;
 
+  form: FormGroup;
+
   objToSend: NavigationExtras = {
     queryParams: {
       list: this.items,
@@ -25,7 +28,11 @@ export class AppCheckoutPageComponent implements OnInit {
     },
   };
 
-  constructor(public route: ActivatedRoute, private router: Router) {
+  constructor(
+    public route: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {
     const currentState = this.router.getCurrentNavigation();
     if (currentState && currentState.extras && currentState.extras.state) {
       console.log(currentState.extras.state.list);
@@ -35,7 +42,14 @@ export class AppCheckoutPageComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      street: [''],
+      zipCode: [''],
+      complement: [''],
+      number: [''],
+    });
+  }
 
   onDateSelected(event) {
     this.objToSend.state.date = event;

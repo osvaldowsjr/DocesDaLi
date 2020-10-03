@@ -8,12 +8,6 @@ table {
   color: #fefff6;
 }
 
-.example-container {
-  height: 350px;
-  width: 60%;
-  overflow: auto;
-}
-
 tr.mat-footer-row {
   font-weight: bold;
 }

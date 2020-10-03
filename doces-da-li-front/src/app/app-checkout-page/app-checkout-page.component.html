@@ -30,24 +30,53 @@
   <div class="col-md-6">
     <mat-card>
       <mat-card-header> Informações da entrega </mat-card-header>
+      <br />
       <mat-card-content>
-        <br />
-        <div>Data da entrega : {{ moment }}</div>
-        <div class="form-group">
-          <mat-form-field>
-            <input placeholder="Rua" matInput />
-          </mat-form-field>
-          <mat-form-field>
-            <input placeholder="Número" matInput />
-          </mat-form-field>
-          <br />
-          <mat-form-field>
-            <input placeholder="Complemento" matInput />
-          </mat-form-field>
-          <mat-form-field>
-            <input placeholder="CEP" matInput />
-          </mat-form-field>
-        </div>
+        <label>Data da Entrega: </label>
+        <form [formGroup]="form" class="form-group">
+          <div class="form-group">
+            <label>Rua</label>
+            <input
+              matInput
+              type="text"
+              formControlName="street"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label>Número</label>
+            <input
+              matInput
+              type="number"
+              formControlName="number"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Complemento</label>
+            <input
+              matInput
+              type="text"
+              formControlName="complement"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>CEP</label>
+            <input
+              matInput
+              type="number"
+              formControlName="zipCode"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary">Efetuar Compra</button>
+          </div>
+        </form>
       </mat-card-content>
     </mat-card>
   </div>
