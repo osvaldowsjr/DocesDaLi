@@ -1,8 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { Orientation } from '@ngmodule/material-carousel';
 import { Iitem } from 'src/interfaces/item.interface';
-import { item } from 'src/_models/slides';
 
 @Component({
   selector: 'app-main-page-carousel',
