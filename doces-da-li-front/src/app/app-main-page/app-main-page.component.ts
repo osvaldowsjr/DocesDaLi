@@ -1,9 +1,9 @@
+import { NumberSymbol } from '@angular/common';
 import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { NavigationExtras, Router } from '@angular/router';
-import { calendarFormat } from 'moment';
-import { item } from 'src/_models/slides';
+import { Iitem } from 'src/interfaces/item.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -15,36 +15,26 @@ export class AppMainPageComponent {
 
   constructor(private router: Router) {}
 
-  //array: number[] = [];
+  array: number[] = [];
 
-  items: item[] = [];
-  date = NONE_TYPE;
+  items: Iitem[] = [];
   displayedColumns: string[] = ['name', 'quantidade', 'preço', 'remover'];
 
-  dateSelected: String = 'Alou';
-
-  objToSend: NavigationExtras = {
-    queryParams: {
-      list: this.items,
-      moment: this.date,
-    },
-  };
-
-  onDateSelected(event) {
-    this.objToSend.state.date = event;
-  }
+  totalCost: number;
+  quantity: number;
 
   onItemAdded(event) {
-    // this.array.push(event.id);
+    this.array.push(event.id);
 
-    // for (let i = 0; i < this.array.length; i++) {
-    //   if (event.id == this.array[i]) {
-    //   } else {
-    //   }
-    // }
-
-    this.items.push(event);
-    this.table.renderRows();
+    for (let i = 0; i < this.items.length; i++) {
+      if (event.id == this.items[i]) {
+        this.quantity += this.quantity;
+        console.log(this.quantity);
+      } else {
+        this.items.push(event);
+        this.table.renderRows();
+      }
+    }
   }
 
   onClickDelete(id: any) {
@@ -52,8 +42,14 @@ export class AppMainPageComponent {
     this.table.renderRows();
   }
 
+  objToSend: NavigationExtras = {
+    state: {
+      list: this.items,
+    },
+  };
+
   goToCheckout() {
-    this.router.navigate(['checkout'], { state: { data: this.objToSend } });
+    this.router.navigate(['checkout'], this.objToSend);
   }
 
   getTotalCost() {

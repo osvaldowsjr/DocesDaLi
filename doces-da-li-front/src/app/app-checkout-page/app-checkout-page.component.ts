@@ -1,7 +1,6 @@
-import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { item } from 'src/_models/slides';
@@ -15,18 +14,21 @@ export class AppCheckoutPageComponent implements OnInit {
   checkoutInfo: any;
   currentState$: Observable<any>;
   items: item[] = [];
-  moment = '';
+
   displayedColumns: string[] = ['name', 'preço'];
-  date = NONE_TYPE;
 
   form: FormGroup;
 
-  objToSend: NavigationExtras = {
-    queryParams: {
-      list: this.items,
-      moment: this.date,
-    },
-  };
+  totalCost: number;
+
+  // objToSend: NavigationExtras = {
+  //   queryParams: {
+  //     list: this.items,
+  //     moment: this.date,
+  //   },
+  // };
+
+  selectedDate: string;
 
   constructor(
     public route: ActivatedRoute,
@@ -38,7 +40,6 @@ export class AppCheckoutPageComponent implements OnInit {
       console.log(currentState.extras.state.list);
       console.log(currentState.extras.state.date);
       this.items = currentState.extras.state.list;
-      this.moment = currentState.extras.state.date;
     }
   }
 
@@ -49,14 +50,16 @@ export class AppCheckoutPageComponent implements OnInit {
       complement: [''],
       number: [''],
     });
+
+    this.getTotalCost();
   }
 
-  onDateSelected(event) {
-    this.objToSend.state.date = event;
+  onSelectDate(event) {
+    this.selectedDate = event;
   }
 
   getTotalCost() {
-    return this.items
+    this.totalCost = this.items
       .map((t) => Number(t.price))
       .reduce((acc, value) => acc + value, 0);
   }
