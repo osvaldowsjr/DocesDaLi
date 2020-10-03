@@ -14,21 +14,20 @@ export class AppCheckoutPageComponent implements OnInit {
   checkoutInfo:any;
   currentState$: Observable<any>;
   items: item[] = [];
-  moment = NONE_TYPE
+  moment = ""
   displayedColumns: string[] = ['name', 'preço'];
 
   constructor(public route: ActivatedRoute,private router: Router){
-    this.checkoutInfo = this.router.getCurrentNavigation().extras.state;
-    console.log(this.checkoutInfo.data)
+    const currentState = this.router.getCurrentNavigation();
+    if (currentState && currentState.extras && currentState.extras.state) {
+      console.log(currentState.extras.state.list)
+      console.log(currentState.extras.state.date)
+      this.items = currentState.extras.state.list;
+      this.moment = currentState.extras.state.date;
+    } 
   }
 
   ngOnInit(): void {
-    this.currentState$ = this.route.paramMap.pipe(
-      map(() => window.history.state.data.queryParams)
-    ); 
-    this.items = this.checkoutInfo.data.queryParams.list
-    this.moment = this.checkoutInfo.data.queryParams.moment
-    console.log(this.moment)
   }
 
   

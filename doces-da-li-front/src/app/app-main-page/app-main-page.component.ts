@@ -18,9 +18,7 @@ export class AppMainPageComponent {
   date = NONE_TYPE;
   displayedColumns: string[] = ['name', 'quantidade', 'preço', 'remover'];
 
-  onDateSelected(event) {
-    this.date = event;
-  }
+  dateSelected: String = 'Alou';
 
   objToSend: NavigationExtras = {
     queryParams: {
@@ -28,6 +26,10 @@ export class AppMainPageComponent {
       moment: this.date,
     },
   };
+
+  onDateSelected(event) {
+    this.objToSend.state.date = event;
+  }
 
   onItemAdded(event) {
     this.items.push(event);
@@ -41,6 +43,10 @@ export class AppMainPageComponent {
 
   goToCheckout() {
     this.router.navigate(['checkout'], { state: { data: this.objToSend } });
+
+    // goToCheckout(){
+    //   this.router.navigate(['checkout'],this.objToSend)
+    // }
   }
 
   getTotalCost() {

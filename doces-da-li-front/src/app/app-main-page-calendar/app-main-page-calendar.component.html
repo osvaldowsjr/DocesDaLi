@@ -1,3 +1,2 @@
-<div class="calendar-wrapper">
-    <mat-calendar #calendar (monthSelected)="monthSelected($event)" [(selected)]="selectedDate" (selectedChange)="dateChanged()"></mat-calendar>
-</div>
+<mat-calendar [selected]="selectedDate" [startAt]="startAt" [minDate]="minDate" [maxDate]="maxDate" [dateFilter]="myFilter" (selectedChange)="onSelect($event)">
+</mat-calendar>

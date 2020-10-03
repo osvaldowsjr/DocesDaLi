@@ -17,3 +17,15 @@ table {
 tr.mat-footer-row {
   font-weight: bold;
 }
+.table-container {
+  height: 350px;
+  width: 60%;
+  overflow: auto;
+  margin-left: 10%;
+  margin-right: 8%;
+}
+
+.mat-icon {
+  color: #fefff6;
+  size: 50%;
+}

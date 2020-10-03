@@ -1,0 +1,22 @@
+<h1 mat-dialog-title><strong>{{action}}</strong></h1>
+<div mat-dialog-content class="dialog">
+    <mat-form-field *ngIf="action != 'Deletar'; else elseTemplate">
+        <input placeholder="{{action}} {{names[1]}}" [(ngModel)]="local_data.first" matInput>
+    </mat-form-field>
+    <mat-form-field *ngIf="action != 'Deletar';">
+        <input placeholder="{{action}} {{names[2]}}" [(ngModel)]="local_data.second" type="number" matInput>
+    </mat-form-field>
+    <mat-form-field *ngIf="action != 'Deletar';">
+        <input placeholder="{{action}} {{names[3]}}" [(ngModel)]=" local_data.third " matInput>
+    </mat-form-field>
+    <mat-form-field *ngIf="action !='Deletar' ; ">
+        <input placeholder="{{action}} {{names[4]}}" [(ngModel)]="local_data.fourth" matInput>
+    </mat-form-field>
+    <ng-template #elseTemplate>
+        Confirma a deleção de <b>{{local_data.name}}</b>?
+    </ng-template>
+</div>
+<div mat-dialog-actions style="margin-top: 5%;">
+    <button mat-button (click)="doAction()" style="margin-right: 10%;">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button>Cancelar</button>
+</div>

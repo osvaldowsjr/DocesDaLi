@@ -1,7 +1,5 @@
-import { Component, Output, EventEmitter, ViewChild, Renderer2, AfterViewInit } from '@angular/core';
-import { Moment } from 'moment';
-import * as moment from 'moment';
-import { MatCalendar } from '@angular/material/datepicker/calendar';
+import { Component, EventEmitter, Output} from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-main-page-calendar',
@@ -10,26 +8,30 @@ import { MatCalendar } from '@angular/material/datepicker/calendar';
 })
 export class AppMainPageCalendarComponent {
 
-  @Output()
-  dateSelected: EventEmitter<Moment> = new EventEmitter();
+  selectedDate = new Date(new Date().setDate(new Date().getDate() +5));
+  startAt = new Date(new Date().setDate(new Date().getDate() +5));
+  minDate = new Date(new Date().setDate(new Date().getDate() +5));
+  maxDate = new Date(new Date().setMonth(new Date().getMonth() + 2));
+  year: any;
+  DayAndDate: string;
 
   @Output()
-  selectedDate = moment();
+  dateSelected: EventEmitter<String> = new EventEmitter();
 
-  @ViewChild('calendar', { static: true })
-  calendar: MatCalendar<Moment>;
-
-  constructor(private renderer: Renderer2) { }
-
-  ngAfterViewInit() {}
-
-  monthSelected(date: Moment) {
-    console.log('month changed');
+  constructor(){
+    this.onSelect(this.selectedDate);
   }
 
-  dateChanged() {
-    this.calendar.activeDate = this.selectedDate;
-    this.dateSelected.emit(this.selectedDate);
+  onSelect(event) {
+    this.selectedDate = new Date(event);
+    this.selectedDate.setHours(13)
+    const dateString = this.selectedDate.toLocaleString();
+    this.dateSelected.emit(dateString)
   }
 
+  myFilter = (d: any): boolean => {
+    const day = d.weekday();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6;
+}
 }

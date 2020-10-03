@@ -30,8 +30,11 @@ export class AppLoginComponent implements OnInit {
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
+    } else {
+      if (this.f.email.value == 'admin@admin.com.br') {
+        this.router.navigate(['/admin']);
+      } else this.router.navigate(['/main']);
     }
-    this.router.navigate(['/main']);
   }
   onRegister() {
     this.router.navigate(['/register']);
