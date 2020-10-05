@@ -4,4 +4,5 @@ export interface Iitem {
   description: string;
   price: number;
   imageurl: string;
+  quantidade?: number;
 }
