@@ -33,6 +33,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { AppStorageComponent } from './app-storage/app-storage.component';
 import { AppAdminComponent } from './app-admin/app-admin.component';
 import { AppAdminIngredientsComponent } from './app-admin-ingredients/app-admin-ingredients.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { AppAdminIngredientsComponent } from './app-admin-ingredients/app-admin-
     MatMomentDateModule,
     MatTabsModule,
     MatGridListModule,
+    HttpClientModule,
   ],
   providers: [{ provide: MatPaginatorIntl, useValue: getBRPaginatorIntl() }],
   bootstrap: [AppComponent],

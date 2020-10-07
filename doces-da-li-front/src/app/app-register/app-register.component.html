@@ -18,12 +18,12 @@
           <label>Nome</label>
           <input
             type="text"
-            formControlName="firstName"
+            formControlName="nome"
             class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+            [ngClass]="{ 'is-invalid': submitted && f.nome.errors }"
           />
-          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.firstName.errors.required" class="validator">
+          <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+            <div *ngIf="f.nome.errors.required" class="validator">
               Nome é obrigatório
             </div>
           </div>
