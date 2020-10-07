@@ -1,0 +1,4 @@
+{
+  "connectionString": "mongodb+srv://banco:12345@cluster0.oh43u.mongodb.net/doces-da-li?retryWrites=true&w=majority",
+  "secret": "docesDaLi"
+}

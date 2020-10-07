@@ -1,0 +1,40 @@
+.slider {
+  max-width: 1100px;
+  display: flex;
+}
+.border-style {
+  border: solid 1px #42929d;
+  border-radius: 10px;
+}
+
+.slider .mat-card {
+  flex: 1;
+  margin: 0 10px;
+}
+.slider .mat-card .img {
+  height: 200px;
+  width: 100%;
+}
+.slider .mat-card .img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.mat-card-content p {
+  min-height: 50px;
+}
+
+.styleBackground {
+  background: #42929d;
+}
+
+.mat-flat-button {
+  color: #42929d;
+  background-color: #fefff6;
+}
+
+.mat-flat-button:hover {
+  opacity: 0.9;
+  transform: scale(1.1, 1.1);
+}

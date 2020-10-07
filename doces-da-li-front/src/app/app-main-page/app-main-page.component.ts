@@ -1,49 +1,73 @@
+import { NumberSymbol } from '@angular/common';
 import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { NavigationExtras, Router } from '@angular/router';
+import { Iitem } from 'src/interfaces/item.interface';
 import { item } from 'src/_models/slides';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './app-main-page.component.html',
-  styleUrls: ['./app-main-page.component.css']
+  styleUrls: ['./app-main-page.component.css'],
 })
-export class AppMainPageComponent{
+export class AppMainPageComponent {
   @ViewChild(MatTable) table: MatTable<any>;
 
-  constructor(private router: Router){}
+  dataSource: MatTableDataSource<any>;
 
-  items: item[] = [];
-  dateSelected: String = "Alou";
-  displayedColumns: string[] = ['name', 'preço','remover'];
-
-
-  onDateSelected(event){
-    this.objToSend.state.date = event
+  constructor(private router: Router) {
+    this.dataSource = new MatTableDataSource(this.array);
   }
 
-  onItemAdded(event){
-    this.items.push(event);
-    this.table.renderRows();
-  }
+  array: Iitem[] = [];
 
-  onClickDelete(id: any){
-      this.items.splice(id, 1);
-      this.table.renderRows();
-  }
+  displayedColumns: string[] = ['name', 'quantidade', 'preço', 'remover'];
 
-  objToSend:NavigationExtras = {
-    state:{
-      list : this.items,
-      date: this.dateSelected
+  totalCost: number;
+  totalQuantity: number;
+
+  onItemAdded(event) {
+    if (this.dataSource.data.includes(event)) {
+      for (let i = 0; i < this.dataSource.data.length; i++) {
+        if (event.id === this.dataSource.data[i].id) {
+          this.dataSource.data[i].quantidade += 1;
+          break;
+        }
+      }
+    } else {
+      this.dataSource.data.push(event);
     }
+
+    this.dataSource.data = this.array;
   }
-  goToCheckout(){
-    this.router.navigate(['checkout'],this.objToSend)
+
+  onClickDelete(id: any) {
+    if (this.dataSource.data[id].quantidade > 1) {
+      this.dataSource.data[id].quantidade -= 1;
+    } else {
+      this.dataSource.data.splice(id, 1);
+    }
+    this.dataSource.data = this.array;
+  }
+
+  goToCheckout() {
+    this.router.navigate(['checkout'], {
+      state: {
+        list: this.dataSource.data,
+      },
+    });
   }
 
   getTotalCost() {
-    return this.items.map(t => Number(t.price)).reduce((acc, value) => acc + value, 0);
+    return this.dataSource.data
+      .map((t) => +(t.price * t.quantidade))
+      .reduce((acc, value) => acc + value, 0);
+  }
+
+  getTotalQuantity() {
+    return this.dataSource.data
+      .map((t) => t.quantidade)
+      .reduce((acc, value) => acc + value, 0);
   }
 }

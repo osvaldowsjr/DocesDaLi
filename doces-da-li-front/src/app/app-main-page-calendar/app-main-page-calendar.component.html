@@ -1,2 +1,7 @@
-<mat-calendar [selected]="selectedDate" [startAt]="startAt" [minDate]="minDate" [maxDate]="maxDate" [dateFilter]="myFilter" (selectedChange)="onSelect($event)">
-</mat-calendar>
+<!-- <mat-calendar [selected]="selectedDate" [startAt]="startAt" [minDate]="minDate" [maxDate]="maxDate" [dateFilter]="myFilter" (selectedChange)="onSelect($event)">
+</mat-calendar> -->
+
+<mat-calendar
+  [selected]="selectedDate"
+  (selectedChange)="onSelect($event)"
+></mat-calendar>

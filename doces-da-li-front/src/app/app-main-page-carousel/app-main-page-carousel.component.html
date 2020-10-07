@@ -1,14 +1,99 @@
-<div class="demo-carousel">
-    <mat-carousel #matCarousel [timings]="timings" [autoplay]="autoplay" [interval]="interval" [loop]="loop" [hideArrows]="hideArrows" [hideIndicators]="hideIndicators" [maxWidth]="maxWidth" [proportion]="proportion" [useKeyboard]="useKeyboard" [useMouseWheel]="useMouseWheel"
-        [orientation]="orientation" [slides]="slides" [maintainAspectRatio]="maintainAspectRatio">
-        <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slidesList; let i = index" [image]="slide.pic">
-            <div fxLayout="row wrap" fxLayoutAlign="space-between" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 5%;">
-                <h1 style="font-size:5vw;">{{ slide.name }}</h1>
-                <h4 style="font-size:2vw;">{{ slide.description }}</h4>
-                <button mat-icon-button (click)="clickButton(i)">
-                    <mat-icon [inline]="true">add_shopping_cart</mat-icon>
-                  </button>
-            </div>
-        </mat-carousel-slide>
-    </mat-carousel>
+<div class="container-fluid">
+  <owl-carousel
+    [options]="mySlideOptions"
+    [carouselClasses]="['owl-theme', 'sliding']"
+  >
+    <div class="item pt-3" *ngFor="let product of productList; let i = index">
+      <div class="slider">
+        <mat-card
+          class="border-style"
+          style="width: 10rem; background-color: #42929d"
+        >
+          <img
+            class="card-img-top border-style"
+            [src]="product.imageurl"
+            alt="Card image cap"
+          />
+          <mat-card-content class="pt-3">
+            <h5 class="card-title" style="color: #fefff6; text-align: center">
+              {{ product.name }}
+            </h5>
+            <p class="card-text" style="color: #fefff6">
+              {{ product.description }}
+            </p>
+
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item border-style"
+                style="
+                  color: #42929d;
+                  font-weight: bold;
+                  background-color: #fefff6;
+                "
+              >
+                Preço: {{ product.price | currency: "R$" }}
+              </li>
+              <li
+                class="list-group-item styleBackground"
+                style="color: #fefff6"
+              >
+                Calorias: 290kcal
+              </li>
+            </ul>
+          </mat-card-content>
+
+          <mat-card-actions class="d-flex justify-content-center my-auto">
+            <button mat-flat-button (click)="clickButton(i)">
+              Adicionar ao carrinho
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </owl-carousel>
 </div>
+
+<!-- <router-outlet></router-outlet>
+<div class="demo-carousel">
+  <mat-carousel
+    #matCarousel
+    [timings]="timings"
+    [autoplay]="autoplay"
+    [interval]="interval"
+    [loop]="loop"
+    [hideArrows]="hideArrows"
+    [hideIndicators]="hideIndicators"
+    [maxWidth]="maxWidth"
+    [proportion]="proportion"
+    [useKeyboard]="useKeyboard"
+    [useMouseWheel]="useMouseWheel"
+    [orientation]="orientation"
+    [slides]="slides"
+    [maintainAspectRatio]="maintainAspectRatio"
+  >
+    <mat-carousel-slide
+      #matCarouselSlide
+      *ngFor="let slide of slidesList; let i = index"
+      [image]="slide.pic"
+    >
+      <div
+        fxLayout="row wrap"
+        fxLayoutAlign="space-between"
+        style="
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+        "
+      >
+        <h1 style="font-size: 5vw">{{ slide.name }}</h1>
+        <h4 style="font-size: 2vw">{{ slide.description }}</h4>
+        <button mat-icon-button (click)="clickButton(i)">
+          <mat-icon [inline]="true">add_shopping_cart</mat-icon>
+        </button>
+      </div>
+    </mat-carousel-slide>
+  </mat-carousel>
+</div> -->

@@ -1,38 +1,31 @@
 table {
-    width: 100%;
-    background-color: #42929D;
-    margin-right: auto;
-    margin-left: auto;
-    color: #FEFFF6;
-}
-
-tr.mat-footer-row {
-    font-weight: bold;
+  width: 100%;
+  background-color: #42929d;
+  margin-right: auto;
+  margin-left: auto;
+  color: #fefff6;
 }
 
 .holder {
-    height: 350px;
-    width: 80%;
-    margin-top: 5%;
-    overflow: auto;
-    margin-left: auto;
-    margin-right: auto;
+  height: 350px;
+  margin-top: 5%;
+  width: 80%;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 mat-card {
-    width: 80%;
-    vertical-align: middle;
-    color: #FEFFF6;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: #42929D;
-    margin-top: 2.5%;
+  width: 80%;
+  vertical-align: middle;
+  color: #fefff6;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #42929d;
+  margin-top: 2.5%;
 }
 
-mat-form-field {
-    margin-right: 5%;
-}
-
-.form-group {
-    width: 80%;
+.mat-button {
+  background-color: #fefff6;
+  color: #42929d;
 }
