@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ClienteService } from 'src/service/cliente.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class AppLoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -43,8 +45,15 @@ export class AppLoginComponent implements OnInit {
         localStorage.setItem('token', dados.token);
 
         if (this.f.email.value == 'admin@admin.com') {
+          this.toastrService.success(
+            'Login admin feito com sucesso',
+            'Sucesso!'
+          );
           this.router.navigate(['/admin']);
-        } else this.router.navigate(['/main']);
+        } else {
+          this.router.navigate(['/main']);
+          this.toastrService.success('Login feito com sucesso', 'Sucesso!');
+        }
       });
   }
   onRegister() {

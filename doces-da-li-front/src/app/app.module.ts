@@ -34,6 +34,7 @@ import { AppStorageComponent } from './app-storage/app-storage.component';
 import { AppAdminComponent } from './app-admin/app-admin.component';
 import { AppAdminIngredientsComponent } from './app-admin-ingredients/app-admin-ingredients.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatToolbarModule,
     MatCarouselModule.forRoot(),
+    ToastrModule.forRoot(),
     MatInputModule,
     MatButtonModule,
     MatTableModule,

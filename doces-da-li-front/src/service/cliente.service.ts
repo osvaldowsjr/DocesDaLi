@@ -5,13 +5,20 @@ import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/interfaces/cliente.interface';
 import { Observable } from 'rxjs/internal/Observable';
+import { ToastrService } from 'ngx-toastr';
+import { NgZone } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ClienteService {
   private clientes: Cliente[] = [];
   private listaClientesAtualizada = new Subject<Cliente[]>();
 
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private toastrService: ToastrService,
+    private zone: NgZone
+  ) {}
 
   adicionarCliente(nome: string, email: string, password: string) {
     const cliente: Cliente = { nome: nome, email: email, password: password };
@@ -47,7 +54,8 @@ export class ClienteService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    alert(error.error.message);
+    this.zone.run(() => this.toastrService.error('Something went wrong!'));
+    //alert(error.error.message);
 
     return throwError('Something bad happened; please try again later.');
   }
