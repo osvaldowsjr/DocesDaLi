@@ -44,19 +44,17 @@ export class ClienteService {
       email: email,
       password: password,
     };
-    return this.httpClient
-      .post<{
-        mensagem: string;
-        id: string;
-        token: string;
-      }>('http://localhost:4000/clientes/authenticate', user)
-      .pipe(catchError(this.handleError));
+    return this.httpClient.post<{
+      mensagem: string;
+      id: string;
+      token: string;
+    }>('http://localhost:4000/clientes/authenticate', user);
   }
 
-  private handleError(error: HttpErrorResponse) {
-    this.zone.run(() => this.toastrService.error('Something went wrong!'));
-    //alert(error.error.message);
+  // private handleError(error: HttpErrorResponse) {
+  //   this.zone.run(() => this.toastrService.error('Something went wrong!'));
+  //   //alert(error.error.message);
 
-    return throwError('Something bad happened; please try again later.');
-  }
+  //   return throwError('Something bad happened; please try again later.');
+  // }
 }

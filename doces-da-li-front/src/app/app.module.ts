@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppLoginComponent } from './app-login/app-login.component';
@@ -35,6 +35,7 @@ import { AppAdminComponent } from './app-admin/app-admin.component';
 import { AppAdminIngredientsComponent } from './app-admin-ingredients/app-admin-ingredients.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { GlobalErrorHandler } from 'src/global-error-handler';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,13 @@ import { ToastrModule } from 'ngx-toastr';
     MatGridListModule,
     HttpClientModule,
   ],
-  providers: [{ provide: MatPaginatorIntl, useValue: getBRPaginatorIntl() }],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: getBRPaginatorIntl() },
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
