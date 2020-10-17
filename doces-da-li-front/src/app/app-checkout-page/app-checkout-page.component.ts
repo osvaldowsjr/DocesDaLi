@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Iitem } from 'src/interfaces/item.interface';
+import { PedidoService } from 'src/service/pedido.service';
 import { item } from 'src/_models/slides';
 
 @Component({
@@ -13,7 +15,7 @@ import { item } from 'src/_models/slides';
 export class AppCheckoutPageComponent implements OnInit {
   checkoutInfo: any;
   currentState$: Observable<any>;
-  items: item[] = [];
+  items: Iitem[] = [];
 
   displayedColumns: string[] = ['name', 'preço'];
 
@@ -21,19 +23,15 @@ export class AppCheckoutPageComponent implements OnInit {
 
   totalCost: number;
 
-  // objToSend: NavigationExtras = {
-  //   queryParams: {
-  //     list: this.items,
-  //     moment: this.date,
-  //   },
-  // };
-
   selectedDate: string;
+
+  pedidos: string;
 
   constructor(
     public route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private pedidoService: PedidoService
   ) {
     const currentState = this.router.getCurrentNavigation();
     if (currentState && currentState.extras && currentState.extras.state) {

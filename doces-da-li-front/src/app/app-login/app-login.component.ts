@@ -44,6 +44,7 @@ export class AppLoginComponent implements OnInit {
       .subscribe(
         (dados) => {
           localStorage.setItem('token', dados.token);
+          localStorage.setItem('id_cliente', dados.email);
 
           if (this.f.email.value == 'admin@admin.com') {
             this.toastrService.success(
