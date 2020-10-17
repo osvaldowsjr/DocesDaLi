@@ -37,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { GlobalErrorHandler } from 'src/global-error-handler';
 import { AppCheckoutPageComponent } from './app-checkout-page/app-checkout-page.component';
+import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.component';
 
 @NgModule({
   declarations: [
@@ -49,11 +50,11 @@ import { AppCheckoutPageComponent } from './app-checkout-page/app-checkout-page.
     AppCheckoutPageComponent,
     AppLoginComponent,
     AppStorageComponent,
-
     DialogBoxComponent,
     AppLoginComponent,
     AppAdminComponent,
     AppAdminIngredientsComponent,
+    AppAdminPedidosComponent,
   ],
   imports: [
     BrowserModule,

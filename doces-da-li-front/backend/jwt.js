@@ -12,6 +12,7 @@ function jwt() {
       "/clientes/authenticate",
       "/clientes/register",
       "/pedidos/register",
+      "/pedidos",
     ],
   });
 }
