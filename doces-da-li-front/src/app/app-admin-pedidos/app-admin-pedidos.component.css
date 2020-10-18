@@ -1,5 +1,5 @@
 table {
-  width: 90%;
+  width: 80%;
   background-color: #42929d;
   margin-top: 5%;
   color: #fefff6;
@@ -16,10 +16,6 @@ table {
 .mat-icon {
   color: #fefff6;
   size: 50%;
-}
-
-table {
-  width: 100%;
 }
 
 tr.example-detail-row {
@@ -43,11 +39,8 @@ tr.example-element-row:not(.example-expanded-row):active {
   display: flex;
 }
 
-.example-element-diagram {
-  min-width: 80px;
-  border: 2px solid black;
-  padding: 8px;
-  font-weight: lighter;
-  margin: 8px 0;
-  height: 104px;
+.inner-table {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }

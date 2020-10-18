@@ -25,7 +25,13 @@ import { PedidoService } from 'src/service/pedido.service';
   ],
 })
 export class AppAdminPedidosComponent implements OnInit {
-  columnsToDisplay: string[] = ['IdPedido', 'DataEntrega'];
+  columnsToDisplay: string[] = [
+    'IdPedido',
+    'DataEntrega',
+    'Endereco',
+    'Expandir',
+  ];
+  innerDisplayedColumns = ['Nome', 'Descricao', 'Preco', 'Quantidade'];
   data: AdmPedidos[];
   expandedElement: AdmPedidos | null;
 
