@@ -87,18 +87,7 @@ export class AppMainPageComponent implements OnInit {
       .reduce((acc, value) => acc + value, 0);
   }
 
-  getPedidos() {
-    return this.array.map((x) => x.name).join(',');
-  }
-
   onConfirmarPedido() {
-    const formValue = [
-      this.form.get('street').value,
-      this.form.get('zipCode').value,
-      this.form.get('complement').value,
-      this.form.get('number').value,
-    ].join(',');
-
     this.pedidoService.adicionarPedido(
       localStorage.getItem('id_cliente'),
       this.array,

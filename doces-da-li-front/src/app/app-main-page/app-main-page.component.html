@@ -52,14 +52,14 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6 mt-3">
+  <div class="col-md-6 mt-1">
     <app-main-page-calendar
       (dateSelected)="onSelectDate($event)"
     ></app-main-page-calendar>
   </div>
 
   <div class="col-md-5 ml-4 mt-1 mb-5">
-    <mat-card>
+    <mat-card style="background-color: #42929d">
       <mat-card-header>
         <mat-card-title>
           <label class="form-group">Informações da entrega</label>
@@ -68,7 +68,6 @@
       <mat-card-content>
         <label>Data da Entrega: {{ selectedDate }}</label>
         <form [formGroup]="form" class="form-group">
-          <code>{{ form.value | json }}</code>
           <div class="form-group">
             <label>Rua</label>
             <input
