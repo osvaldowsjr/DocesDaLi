@@ -1,12 +1,8 @@
-import { NumberSymbol } from '@angular/common';
-import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { NavigationExtras, Router } from '@angular/router';
 import { Iitem } from 'src/interfaces/item.interface';
 import { PedidoService } from 'src/service/pedido.service';
-import { item } from 'src/_models/slides';
 
 @Component({
   selector: 'app-main-page',
