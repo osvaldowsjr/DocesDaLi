@@ -1,24 +1,27 @@
-import { NumberSymbol } from '@angular/common';
-import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { NavigationExtras, Router } from '@angular/router';
 import { Iitem } from 'src/interfaces/item.interface';
-import { item } from 'src/_models/slides';
+import { PedidoService } from 'src/service/pedido.service';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './app-main-page.component.html',
   styleUrls: ['./app-main-page.component.css'],
 })
-export class AppMainPageComponent {
+export class AppMainPageComponent implements OnInit {
   @ViewChild(MatTable) table: MatTable<any>;
 
   dataSource: MatTableDataSource<any>;
 
-  constructor(private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private pedidoService: PedidoService
+  ) {
     this.dataSource = new MatTableDataSource(this.array);
   }
+
+  form: FormGroup;
 
   array: Iitem[] = [];
 
@@ -26,6 +29,23 @@ export class AppMainPageComponent {
 
   totalCost: number;
   totalQuantity: number;
+
+  selectedDate: string;
+
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      street: [''],
+      zipCode: [''],
+      complement: [''],
+      number: [''],
+    });
+
+    this.getTotalCost();
+  }
+
+  onSelectDate(event) {
+    this.selectedDate = event;
+  }
 
   onItemAdded(event) {
     if (this.dataSource.data.includes(event)) {
@@ -51,14 +71,6 @@ export class AppMainPageComponent {
     this.dataSource.data = this.array;
   }
 
-  goToCheckout() {
-    this.router.navigate(['checkout'], {
-      state: {
-        list: this.dataSource.data,
-      },
-    });
-  }
-
   getTotalCost() {
     return this.dataSource.data
       .map((t) => +(t.price * t.quantidade))
@@ -69,5 +81,14 @@ export class AppMainPageComponent {
     return this.dataSource.data
       .map((t) => t.quantidade)
       .reduce((acc, value) => acc + value, 0);
+  }
+
+  onConfirmarPedido() {
+    this.pedidoService.adicionarPedido(
+      localStorage.getItem('id_cliente'),
+      this.array,
+      this.form.value,
+      this.selectedDate
+    );
   }
 }

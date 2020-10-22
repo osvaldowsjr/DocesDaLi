@@ -1,8 +1,9 @@
 .mat-calendar {
-    width: 80%;
-    text-align: center;
-    color: #FEFFF6;
-    margin-left: 20%;
-    margin-right: 20%;
-    background-color: #42929D;
+  width: 80%;
+  text-align: center;
+  color: #fefff6;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #42929d;
+  border-radius: 4px;
 }

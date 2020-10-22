@@ -42,3 +42,11 @@ table {
   top: 8px;
   left: 4px;
 }
+
+table {
+  width: 100%;
+  background-color: #42929d;
+  margin-right: auto;
+  margin-left: auto;
+  color: #fefff6;
+}

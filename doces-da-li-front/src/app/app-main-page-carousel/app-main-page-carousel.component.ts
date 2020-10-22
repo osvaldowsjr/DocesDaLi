@@ -77,7 +77,6 @@ export class AppMainPageCarouselComponent {
 
   mySlideOptions = {
     dotsEach: true,
-    nav: true,
     stagePadding: 20,
     mouseDrag: true,
     responsive: {

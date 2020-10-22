@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppLoginComponent } from './app-login/app-login.component';
@@ -22,7 +22,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { AppMainPageCarouselComponent } from './app-main-page-carousel/app-main-page-carousel.component';
 import { AppMainPageCalendarComponent } from './app-main-page-calendar/app-main-page-calendar.component';
-import { AppCheckoutPageComponent } from './app-checkout-page/app-checkout-page.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { getBRPaginatorIntl } from 'src/_helpers/paginator';
 import { MatIconModule } from '@angular/material/icon';
@@ -34,6 +33,9 @@ import { AppStorageComponent } from './app-storage/app-storage.component';
 import { AppAdminComponent } from './app-admin/app-admin.component';
 import { AppAdminIngredientsComponent } from './app-admin-ingredients/app-admin-ingredients.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { GlobalErrorHandler } from 'src/global-error-handler';
+import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +45,13 @@ import { HttpClientModule } from '@angular/common/http';
     AppMainPageComponent,
     AppMainPageCarouselComponent,
     AppMainPageCalendarComponent,
-    AppCheckoutPageComponent,
     AppLoginComponent,
     AppStorageComponent,
-    AppCheckoutPageComponent,
     DialogBoxComponent,
     AppLoginComponent,
     AppAdminComponent,
     AppAdminIngredientsComponent,
+    AppAdminPedidosComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatToolbarModule,
     MatCarouselModule.forRoot(),
+    ToastrModule.forRoot(),
     MatInputModule,
     MatButtonModule,
     MatTableModule,
@@ -77,7 +79,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     HttpClientModule,
   ],
-  providers: [{ provide: MatPaginatorIntl, useValue: getBRPaginatorIntl() }],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: getBRPaginatorIntl() },
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from 'src/_helpers/must-match.validator';
 import { Router } from '@angular/router';
 import { ClienteService } from 'src/service/cliente.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ export class AppRegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit() {
@@ -50,7 +52,7 @@ export class AppRegisterComponent implements OnInit {
       this.registerForm.value.password
     );
 
-    alert('Usuário Registrado!! :-)\n\n');
+    this.toastrService.success('Sucesso!', 'Usuário Registrado!!');
     this.router.navigate(['/login']);
   }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/interfaces/cliente.interface';
 import { Observable } from 'rxjs/internal/Observable';
@@ -37,18 +36,10 @@ export class ClienteService {
       email: email,
       password: password,
     };
-    return this.httpClient
-      .post<{
-        mensagem: string;
-        id: string;
-        token: string;
-      }>('http://localhost:4000/clientes/authenticate', user)
-      .pipe(catchError(this.handleError));
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    alert(error.error.message);
-
-    return throwError('Something bad happened; please try again later.');
+    return this.httpClient.post<{
+      mensagem: string;
+      id: string;
+      token: string;
+    }>('http://localhost:4000/clientes/authenticate', user);
   }
 }

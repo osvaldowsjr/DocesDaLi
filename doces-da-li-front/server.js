@@ -16,17 +16,11 @@ app.use(jwt());
 
 app.use(errorHandler);
 
-app.use("/clientes", require("./backend/cliente-controller"));
+app.use("/clientes", require("./backend/controllers/cliente-controller"));
+app.use("/pedidos", require("./backend/controllers/pedido-controller"));
 
 const port =
   process.env.NODE_ENV === "production" ? process.env.PORT || 80 : 4000;
 const server = app.listen(port, function () {
   console.log("Server listening on port " + port);
 });
-
-//const http = require("http");
-//const app = require("./backend/app");
-// const port = process.env.PORT || 3000;
-// app.set("port", port);
-// const server = http.createServer(app);
-// server.listen(port);
