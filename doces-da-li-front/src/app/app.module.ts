@@ -22,7 +22,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { AppMainPageCarouselComponent } from './app-main-page-carousel/app-main-page-carousel.component';
 import { AppMainPageCalendarComponent } from './app-main-page-calendar/app-main-page-calendar.component';
-
 import { OwlModule } from 'ngx-owl-carousel';
 import { getBRPaginatorIntl } from 'src/_helpers/paginator';
 import { MatIconModule } from '@angular/material/icon';
@@ -36,7 +35,6 @@ import { AppAdminIngredientsComponent } from './app-admin-ingredients/app-admin-
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { GlobalErrorHandler } from 'src/global-error-handler';
-import { AppCheckoutPageComponent } from './app-checkout-page/app-checkout-page.component';
 import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.component';
 
 @NgModule({
@@ -47,7 +45,6 @@ import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.
     AppMainPageComponent,
     AppMainPageCarouselComponent,
     AppMainPageCalendarComponent,
-    AppCheckoutPageComponent,
     AppLoginComponent,
     AppStorageComponent,
     DialogBoxComponent,
