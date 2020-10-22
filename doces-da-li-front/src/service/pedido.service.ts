@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { AdmPedidos } from 'src/interfaces/adm-pedido.interface';
 import { Iitem } from 'src/interfaces/item.interface';
 import { Pedido } from 'src/interfaces/pedido.interface';
