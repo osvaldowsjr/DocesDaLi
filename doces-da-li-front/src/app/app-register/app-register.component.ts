@@ -4,6 +4,7 @@ import { MustMatch } from 'src/_helpers/must-match.validator';
 import { Router } from '@angular/router';
 import { ClienteService } from 'src/service/cliente.service';
 import { ToastrService } from 'ngx-toastr';
+import { Cliente } from 'src/interfaces/cliente.interface';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 export class AppRegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
+
+  clientes: Cliente[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -46,11 +49,11 @@ export class AppRegisterComponent implements OnInit {
       return;
     }
 
-    this.clienteService.adicionarCliente(
-      this.registerForm.value.nome,
-      this.registerForm.value.email,
-      this.registerForm.value.password
-    );
+    this.clienteService
+      .adicionarCliente(this.registerForm.value)
+      .subscribe((dados) => {
+        this.clientes.push(dados);
+      });
 
     this.toastrService.success('Sucesso!', 'Usuário Registrado!!');
     this.router.navigate(['/login']);

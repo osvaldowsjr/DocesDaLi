@@ -39,28 +39,26 @@ export class AppLoginComponent implements OnInit {
       return;
     }
 
-    this.clienteService
-      .autenticarCliente(this.form.value.email, this.form.value.password)
-      .subscribe(
-        (dados) => {
-          localStorage.setItem('token', dados.token);
-          localStorage.setItem('id_cliente', dados.email);
+    this.clienteService.autenticarCliente(this.form.value).subscribe(
+      (dados) => {
+        localStorage.setItem('token', dados.token);
+        localStorage.setItem('id_cliente', dados.email);
 
-          if (this.f.email.value == 'admin@admin.com') {
-            this.toastrService.success(
-              'Login admin feito com sucesso',
-              'Sucesso!'
-            );
-            this.router.navigate(['/admin']);
-          } else {
-            this.router.navigate(['/main']);
-            this.toastrService.success('Login feito com sucesso', 'Sucesso!');
-          }
-        },
-        (error) => {
-          throw error;
+        if (this.f.email.value == 'admin@admin.com') {
+          this.toastrService.success(
+            'Login admin feito com sucesso',
+            'Sucesso!'
+          );
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/main']);
+          this.toastrService.success('Login feito com sucesso', 'Sucesso!');
         }
-      );
+      },
+      (error) => {
+        throw error;
+      }
+    );
   }
   onRegister() {
     this.router.navigate(['/register']);
