@@ -1,10 +1,9 @@
-import { IEndereco } from './endereco.interface';
-import { Iitem } from './item.interface';
+import { Item } from './item.interface';
 
 export interface Pedido {
   id_cliente: string;
   id_pedido?: string;
-  pedido: Iitem[];
+  pedido: Item[];
   endereco: FormData;
   data: string;
 }

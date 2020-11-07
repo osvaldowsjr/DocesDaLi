@@ -1,54 +1,40 @@
-<div class="container-fluid">
-  <owl-carousel
-    [options]="mySlideOptions"
-    [carouselClasses]="['owl-theme', 'sliding']"
+<owl-carousel-o [options]="mySlideOptions">
+  <ng-template *ngFor="let product of productList; let i = index" carouselSlide
+    ><div class="slider mt-3">
+      <mat-card class="border-style" style="background-color: #42929d">
+        <img
+          class="card-img-top border-style"
+          [src]="product.imageurl"
+          alt="Card image cap"
+        />
+        <mat-card-content class="pt-3">
+          <h5 class="card-title" style="color: #fefff6; text-align: center">
+            {{ product.name }}
+          </h5>
+          <p class="card-text" style="color: #fefff6">
+            {{ product.description }}
+          </p>
+
+          <ul class="list-group list-group-flush">
+            <li
+              class="list-group-item border-style"
+              style="
+                color: #42929d;
+                font-weight: bold;
+                background-color: #fefff6;
+              "
+            >
+              Preço: {{ product.price | currency: "R$" }}
+            </li>
+          </ul>
+        </mat-card-content>
+
+        <mat-card-actions class="d-flex justify-content-center my-auto">
+          <button mat-flat-button (click)="clickButton(i)">
+            Adicionar ao carrinho
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div></ng-template
   >
-    <div class="item pt-3" *ngFor="let product of productList; let i = index">
-      <div class="slider">
-        <mat-card
-          class="border-style"
-          style="width: 10rem; background-color: #42929d"
-        >
-          <img
-            class="card-img-top border-style"
-            [src]="product.imageurl"
-            alt="Card image cap"
-          />
-          <mat-card-content class="pt-3">
-            <h5 class="card-title" style="color: #fefff6; text-align: center">
-              {{ product.name }}
-            </h5>
-            <p class="card-text" style="color: #fefff6">
-              {{ product.description }}
-            </p>
-
-            <ul class="list-group list-group-flush">
-              <li
-                class="list-group-item border-style"
-                style="
-                  color: #42929d;
-                  font-weight: bold;
-                  background-color: #fefff6;
-                "
-              >
-                Preço: {{ product.price | currency: "R$" }}
-              </li>
-              <li
-                class="list-group-item styleBackground"
-                style="color: #fefff6"
-              >
-                Calorias: 290kcal
-              </li>
-            </ul>
-          </mat-card-content>
-
-          <mat-card-actions class="d-flex justify-content-center my-auto">
-            <button mat-flat-button (click)="clickButton(i)">
-              Adicionar ao carrinho
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    </div>
-  </owl-carousel>
-</div>
+</owl-carousel-o>

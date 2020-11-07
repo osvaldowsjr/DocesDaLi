@@ -37,6 +37,7 @@
     "mongodb": "^3.5.9",
     "mongoose": "^5.10.8",
     "ngx-owl-carousel": "^2.0.7",
+    "ngx-owl-carousel-o": "^4.0.0",
     "ngx-toastr": "^13.1.0",
     "owl.carousel": "^2.3.4",
     "rootpath": "^0.1.2",

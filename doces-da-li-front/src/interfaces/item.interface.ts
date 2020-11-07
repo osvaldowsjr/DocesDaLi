@@ -1,5 +1,5 @@
-export interface Iitem {
-  id: number;
+export interface Item {
+  id: string;
   name: string;
   description: string;
   price: number;

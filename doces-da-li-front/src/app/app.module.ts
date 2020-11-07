@@ -15,7 +15,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { AppRegisterComponent } from './app-register/app-register.component';
 import { AppMainPageComponent } from './app-main-page/app-main-page.component';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatTableModule } from '@angular/material/table';
@@ -32,10 +31,12 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { AppStorageComponent } from './app-storage/app-storage.component';
 import { AppAdminComponent } from './app-admin/app-admin.component';
 import { AppAdminIngredientsComponent } from './app-admin-ingredients/app-admin-ingredients.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { GlobalErrorHandler } from 'src/global-error-handler';
 import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { InterceptorComponent } from './auth/interceptor/interceptor.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.
     AppAdminComponent,
     AppAdminIngredientsComponent,
     AppAdminPedidosComponent,
+    InterceptorComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,6 @@ import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.
     BrowserAnimationsModule,
     MatCardModule,
     MatToolbarModule,
-    MatCarouselModule.forRoot(),
     ToastrModule.forRoot(),
     MatInputModule,
     MatButtonModule,
@@ -71,7 +72,7 @@ import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.
     MatListModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    OwlModule,
+    CarouselModule,
     MatIconModule,
     MatNativeDateModule,
     MatMomentDateModule,
@@ -84,6 +85,11 @@ import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.
     {
       provide: ErrorHandler,
       useClass: GlobalErrorHandler,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorComponent,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

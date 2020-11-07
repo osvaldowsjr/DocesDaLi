@@ -1,119 +1,118 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/prebuilt-themes/purple-green.css';
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 html,
 body {
-    background-color: #F8D9D6;
-    height: 100%;
-    overflow: auto;
+  background-color: #f8d9d6;
+  height: 100%;
+  overflow: auto;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .mat-focused .mat-form-field-label {
-    /*change color of label*/
-    color: #FEFFF6 !important;
+  /*change color of label*/
+  color: #fefff6 !important;
 }
 
 .mat-form-field-underline {
-    /*change color of underline*/
-    background-color: #FEFFF6 !important;
+  /*change color of underline*/
+  background-color: #fefff6 !important;
 }
 
 .mat-form-field-ripple {
-    /*change color of underline when focused*/
-    background-color: #FEFFF6 !important;
-    ;
+  /*change color of underline when focused*/
+  background-color: #fefff6 !important;
 }
 
 .mat-button {
-    background-color: #FEFFF6;
-    color: #42929D;
+  background-color: #fefff6;
+  color: #42929d;
 }
 
 .mat-flat-button {
-    background-color: #42929D;
-    color: #FEFFF6;
+  background-color: #42929d;
+  color: #fefff6;
 }
 
 .mat-card-title {
-    color: #FEFFF6;
-    margin-left: -16px;
+  color: #fefff6;
+  margin-left: -16px;
 }
 
 .mat-card-header {
-    margin: 0;
+  margin: 0;
 }
 
 tr.mat-footer-row {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .mat-calendar-body-selected {
-    background-color: #F8D9D6;
-    color: #72bbc0;
+  background-color: #f8d9d6;
+  color: #72bbc0;
 }
 
 .mat-calendar-body-label[colspan="7"] {
-    display: none;
+  display: none;
 }
 
 .mat-calendar-body-label {
-    opacity: 0;
+  opacity: 0;
 }
 
-.content>mat-card {
-    width: 40%;
-    vertical-align: middle;
-    color: #FEFFF6;
-    background-color: #42929D;
-    margin-left: 5%;
+.content > mat-card {
+  width: 40%;
+  vertical-align: middle;
+  color: #fefff6;
+  background-color: #42929d;
+  margin-left: 5%;
 }
 
 .mat-dialog-container {
-    background-color: #42929D;
-    color: #FEFFF6;
+  background-color: #42929d;
+  color: #fefff6;
 }
 
 .mat-icon {
-    color: #42929D;
+  color: #42929d;
 }
 
 .mat-icon-button {
-    font-size: 300%;
+  font-size: 300%;
 }
 
 .mat-mini-fab {
-    color: #42929D;
-    font-family: 'Material Icons' !important;
+  color: #42929d;
+  font-family: "Material Icons" !important;
 }
 
 .mat-flat-button.mat-accent,
 .mat-raised-button.mat-accent,
 .mat-fab.mat-accent,
 .mat-mini-fab.mat-accent {
-    color: #42929D;
-    background-color: #42929D;
+  color: #42929d;
+  background-color: #42929d;
 }
 
 .mat-tab-label {
-    background-color: #42929D;
+  background-color: #42929d;
 }
 
 .mat-tab-group {
-    background-color: #42929D;
-    color: #FEFFF6;
+  background-color: #42929d;
+  color: #fefff6;
 }
 
 .mat-tab-label-content {
-    color: #FEFFF6;
+  color: #fefff6;
 }
 
 .mat-tab-group.mat-primary .mat-ink-bar,
 .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: #FEFFF6;
+  background-color: #fefff6;
 }

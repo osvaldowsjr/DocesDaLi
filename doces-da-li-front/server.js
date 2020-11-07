@@ -18,6 +18,11 @@ app.use(errorHandler);
 
 app.use("/clientes", require("./backend/controllers/cliente-controller"));
 app.use("/pedidos", require("./backend/controllers/pedido-controller"));
+app.use("/estoque", require("./backend/controllers/estoque-controller"));
+app.use(
+  "/estoqueDoce",
+  require("./backend/controllers/estoqueDoce-controller")
+);
 
 const port =
   process.env.NODE_ENV === "production" ? process.env.PORT || 80 : 4000;

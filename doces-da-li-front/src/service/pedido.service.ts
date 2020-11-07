@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AdmPedidos } from 'src/interfaces/adm-pedido.interface';
-import { Iitem } from 'src/interfaces/item.interface';
+import { Item } from 'src/interfaces/item.interface';
 import { Pedido } from 'src/interfaces/pedido.interface';
 
 @Injectable({ providedIn: 'root' })
@@ -14,7 +14,7 @@ export class PedidoService {
 
   adicionarPedido(
     id_cliente: string,
-    pedido: Iitem[],
+    pedido: Item[],
     endereco: FormData,
     data: string
   ) {
