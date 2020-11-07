@@ -29,13 +29,7 @@ export class AuthGuard implements CanActivate {
       this.toastr.error('Access not allowed!');
       this.router.navigate(['/login']);
     }
-    return true;
-  }
 
-  canDeactivate(): boolean {
-    if (localStorage.getItem('id_cliente') === 'admin@admin.com') {
-      this.toastr.error('Access not allowed!');
-    }
     return true;
   }
 }

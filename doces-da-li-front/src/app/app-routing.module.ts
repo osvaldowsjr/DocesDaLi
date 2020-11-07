@@ -30,7 +30,6 @@ const routes: Routes = [
     path: 'admin',
     component: AppAdminComponent,
     canActivate: [AuthGuard],
-    canDeactivate: [AuthGuard],
   },
 ];
 
