@@ -31,11 +31,12 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { AppStorageComponent } from './app-storage/app-storage.component';
 import { AppAdminComponent } from './app-admin/app-admin.component';
 import { AppAdminIngredientsComponent } from './app-admin-ingredients/app-admin-ingredients.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { GlobalErrorHandler } from 'src/global-error-handler';
 import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { InterceptorComponent } from './auth/interceptor/interceptor.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AppAdminComponent,
     AppAdminIngredientsComponent,
     AppAdminPedidosComponent,
+    InterceptorComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +85,11 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     {
       provide: ErrorHandler,
       useClass: GlobalErrorHandler,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorComponent,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

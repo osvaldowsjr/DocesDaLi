@@ -22,10 +22,13 @@ export class AppMainPageCarouselComponent implements OnInit {
       0: {
         items: 1,
       },
-      600: {
+      400: {
+        items: 2,
+      },
+      740: {
         items: 3,
       },
-      1000: {
+      940: {
         items: 4,
       },
     },
