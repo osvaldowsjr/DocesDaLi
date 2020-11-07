@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Doce } from 'src/interfaces/doce.interface';
 import { Item } from 'src/interfaces/item.interface';
 import { EstoqueDoceService } from 'src/service/estoqueDoce.service';
@@ -14,10 +15,9 @@ export class AppMainPageCarouselComponent implements OnInit {
   productList: Item[];
   wrg: Doce[];
 
-  mySlideOptions = {
+  mySlideOptions: OwlOptions = {
     dotsEach: true,
     mouseDrag: true,
-    nav: true,
     responsive: {
       0: {
         items: 1,
