@@ -1,6 +1,5 @@
 .slider {
-  max-width: 1100px;
-  display: flex;
+  display: inline-flex;
 }
 .border-style {
   border: solid 1px #42929d;
@@ -8,7 +7,6 @@
 }
 
 .slider .mat-card {
-  flex: 1;
   margin: 0 10px;
 }
 .slider .mat-card .img {

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { Iitem } from 'src/interfaces/item.interface';
+import { Item } from 'src/interfaces/item.interface';
 import { PedidoService } from 'src/service/pedido.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class AppMainPageComponent implements OnInit {
 
   form: FormGroup;
 
-  array: Iitem[] = [];
+  array: Item[] = [];
 
   displayedColumns: string[] = ['name', 'quantidade', 'preço', 'remover'];
 

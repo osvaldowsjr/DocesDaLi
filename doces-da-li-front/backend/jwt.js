@@ -1,6 +1,7 @@
 const expressJwt = require("express-jwt");
 const config = require("./config.json");
 const clienteService = require("./service/cliente-service");
+const estoqueService = require("./service/estoque-service");
 
 module.exports = jwt;
 
@@ -13,6 +14,12 @@ function jwt() {
       "/clientes/register",
       "/pedidos/register",
       "/pedidos",
+      "/estoque",
+      "/estoque/add",
+      /^\/estoque\/.*/,
+      "/estoqueDoce",
+      "/estoqueDoce/add",
+      /^\/estoqueDoce\/.*/,
     ],
   });
 }
