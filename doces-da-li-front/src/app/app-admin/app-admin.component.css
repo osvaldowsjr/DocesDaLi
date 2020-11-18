@@ -1,25 +1,31 @@
 .mat-tab-label {
-    min-width: 25px !important;
-    padding: 5px;
-    background-color: transparent;
-    color: red;
-    font-weight: 700;
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: red;
+  font-weight: 700;
 }
-
 
 /* Styles for the active tab label */
 
 .mat-tab-label.mat-tab-label-active {
-    min-width: 25px !important;
-    padding: 5px;
-    background-color: transparent;
-    color: red;
-    font-weight: 700;
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: red;
+  font-weight: 700;
 }
-
 
 /* Styles for the ink bar */
 
 .mat-ink-bar {
-    background-color: green;
+  background-color: green;
+}
+
+button {
+  position: fixed;
+  margin-left: calc(100% - 210px);
+  margin-top: 6px;
+  z-index: 1000;
+  box-shadow: 3px 2px 2px rgb(112, 112, 112);
 }

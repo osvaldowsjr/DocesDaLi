@@ -1,0 +1,20 @@
+<button
+  (click)="voltar()"
+  type="button"
+  style="background-color: #fefff6; color: #42929d"
+  mat-button
+>
+  Voltar
+</button>
+
+<header>
+  <h3 class="ml-2 mt-1" style="color: #42929d">Relatório de vendas</h3>
+</header>
+
+<mat-card class="mt-5 mb-5" *ngFor="let data of result">
+  <mat-card-title>{{ data.nome }}</mat-card-title>
+  <mat-card-content>
+    Quantidade: {{ data.quantidade }} <br />
+    Total: {{ data.price | currency: "R$" }}</mat-card-content
+  >
+</mat-card>
