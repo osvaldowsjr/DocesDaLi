@@ -1,0 +1,16 @@
+mat-card {
+  background: #42929d;
+  color: #fefff6;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 15px solid #42929d;
+}
+
+button {
+  position: fixed;
+  margin-left: calc(100% - 210px);
+  margin-top: 6px;
+  z-index: 1000;
+  box-shadow: 3px 2px 2px rgb(112, 112, 112);
+}

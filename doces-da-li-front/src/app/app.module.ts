@@ -37,6 +37,7 @@ import { GlobalErrorHandler } from 'src/global-error-handler';
 import { AppAdminPedidosComponent } from './app-admin-pedidos/app-admin-pedidos.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { InterceptorComponent } from './auth/interceptor/interceptor.component';
+import { AppAdminRelatorioComponent } from './app-admin-relatorio/app-admin-relatorio.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { InterceptorComponent } from './auth/interceptor/interceptor.component';
     AppAdminIngredientsComponent,
     AppAdminPedidosComponent,
     InterceptorComponent,
+    AppAdminRelatorioComponent,
   ],
   imports: [
     BrowserModule,

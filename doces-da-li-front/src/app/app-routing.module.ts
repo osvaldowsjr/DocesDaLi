@@ -5,6 +5,7 @@ import { AppRegisterComponent } from './app-register/app-register.component';
 import { AppMainPageComponent } from './app-main-page/app-main-page.component';
 import { AppAdminComponent } from './app-admin/app-admin.component';
 import { AuthGuard } from './auth.guard';
+import { AppAdminRelatorioComponent } from './app-admin-relatorio/app-admin-relatorio.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
     path: 'admin',
     component: AppAdminComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'relatorio',
+    component: AppAdminRelatorioComponent,
   },
 ];
 
